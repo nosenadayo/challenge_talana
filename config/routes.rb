@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :employees, only: [:index, :show] do
+        get 'availability', on: :member
+        collection do
+          get 'available_on_date'
+        end
+      end
+    end
+  end
 end
