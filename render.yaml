@@ -1,1 +1,24 @@
- 
+services:
+  - type: web
+    name: challenge-talana
+    env: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: challenge_talana_db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: RAILS_ENV
+        value: production
+      - key: RAILS_LOG_TO_STDOUT
+        value: true
+
+databases:
+  - name: challenge_talana_db
+    plan: free
+    databaseName: challenge_talana
+    user: challenge_talana 
