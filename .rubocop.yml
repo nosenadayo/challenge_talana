@@ -13,14 +13,13 @@ AllCops:
 
 Style/Documentation:
   Enabled: false
-
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
-
 RSpec/MultipleExpectations:
   Enabled: false
 RSpec/ExampleLength:
   Enabled: false
 Metrics/ClassLength:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+Metrics/BlockLength:
   Enabled: false
