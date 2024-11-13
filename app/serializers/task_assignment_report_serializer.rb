@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TaskAssignmentReportSerializer
   include JSONAPI::Serializer
   include Serializers::Reports::EmployeeSummary
@@ -19,4 +21,4 @@ class TaskAssignmentReportSerializer
   attribute :summary_stats do |_object, params|
     generate_summary_stats(params[:assigned_date])
   end
-end 
+end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Serializers
   module Reports
     module UnassignedTasks
@@ -6,7 +8,7 @@ module Serializers
       class_methods do
         def generate_unassigned_tasks(date)
           Task.unassigned
-              .where('due_date >= ?', date)
+              .where(due_date: date..)
               .map do |task|
             build_unassigned_task_summary(task)
           end
@@ -27,4 +29,4 @@ module Serializers
       end
     end
   end
-end 
+end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Serializers
   module Reports
     module EmployeeSummary
@@ -6,8 +8,8 @@ module Serializers
       class_methods do
         def generate_employees_summary(date)
           Employee.includes(:task_assignments, :skills)
-                 .where(task_assignments: { assigned_date: date })
-                 .map do |employee|
+                  .where(task_assignments: { assigned_date: date })
+                  .map do |employee|
             build_employee_summary(employee, date)
           end
         end
@@ -27,8 +29,8 @@ module Serializers
 
         def build_assignments_summary(employee, date)
           employee.task_assignments
-                 .where(assigned_date: date)
-                 .map { |assignment| task_summary(assignment) }
+                  .where(assigned_date: date)
+                  .map { |assignment| task_summary(assignment) }
         end
 
         def task_summary(assignment)
@@ -43,9 +45,9 @@ module Serializers
 
         def calculate_total_hours_summary(employee, date)
           employee.task_assignments
-                 .where(assigned_date: date)
-                 .joins(:task)
-                 .sum('tasks.estimated_hours')
+                  .where(assigned_date: date)
+                  .joins(:task)
+                  .sum('tasks.estimated_hours')
         end
 
         def calculate_available_hours(employee, date)
@@ -54,4 +56,4 @@ module Serializers
       end
     end
   end
-end 
+end

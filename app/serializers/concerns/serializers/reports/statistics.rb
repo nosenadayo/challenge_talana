@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Serializers
   module Reports
     module Statistics
@@ -21,15 +23,15 @@ module Serializers
 
         def calculate_total_hours(date)
           TaskAssignment.where(assigned_date: date)
-                       .joins(:task)
-                       .sum('tasks.estimated_hours')
+                        .joins(:task)
+                        .sum('tasks.estimated_hours')
         end
 
         def count_assigned_employees(date)
           Employee.joins(:task_assignments)
-                 .where(task_assignments: { assigned_date: date })
-                 .distinct
-                 .count
+                  .where(task_assignments: { assigned_date: date })
+                  .distinct
+                  .count
         end
 
         def calculate_average_hours(date)
@@ -42,4 +44,4 @@ module Serializers
       end
     end
   end
-end 
+end
