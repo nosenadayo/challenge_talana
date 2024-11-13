@@ -12,6 +12,11 @@ Rails.application.routes.draw do
           get 'available_on_date'
         end
       end
+      resources :task_assignments, only: [] do
+        collection do
+          get :report
+        end
+      end
     end
   end
 
