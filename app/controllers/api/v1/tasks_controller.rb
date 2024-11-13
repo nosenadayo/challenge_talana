@@ -16,7 +16,7 @@ module Api
       end
 
       def create
-        result = Tasks::Create.call(params: task_params)
+        result = Tasks::CreateAndSchedule.call(params: task_params)
 
         if result.success?
           render json: TaskSerializer.new(result.task).serializable_hash,
