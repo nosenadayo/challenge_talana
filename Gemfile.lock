@@ -88,6 +88,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -266,6 +267,7 @@ DEPENDENCIES
   database_cleaner-active_record
   factory_bot_rails
   faker
+  interactor (~> 3.0)
   jbuilder (~> 2.7)
   jsonapi-serializer
   listen (~> 3.3)

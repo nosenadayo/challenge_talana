@@ -16,4 +16,10 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*' 
+    - 'spec/**/*'
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
