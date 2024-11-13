@@ -39,35 +39,35 @@ RSpec.describe Task, type: :model do
     let!(:unassigned_task) { create(:task, skills: [skill]) }
 
     describe '.unassigned' do
-      it 'returns only unassigned tasks' do # rubocop:disable RSpec/MultipleExpectations
+      it 'returns only unassigned tasks' do
         expect(described_class.unassigned).to include(unassigned_task, overdue_task, future_task)
         expect(described_class.unassigned).not_to include(assigned_task)
       end
     end
 
     describe '.assigned' do
-      it 'returns only assigned tasks' do # rubocop:disable RSpec/MultipleExpectations
+      it 'returns only assigned tasks' do
         expect(described_class.assigned).to include(assigned_task)
         expect(described_class.assigned).not_to include(unassigned_task, overdue_task, future_task)
       end
     end
 
     describe '.pending_assignment' do
-      it 'returns unassigned tasks with future due dates' do # rubocop:disable RSpec/MultipleExpectations
+      it 'returns unassigned tasks with future due dates' do
         expect(described_class.pending_assignment).to include(future_task, unassigned_task)
         expect(described_class.pending_assignment).not_to include(overdue_task, assigned_task)
       end
     end
 
     describe '.overdue' do
-      it 'returns unassigned tasks with past due dates' do # rubocop:disable RSpec/MultipleExpectations
+      it 'returns unassigned tasks with past due dates' do
         expect(described_class.overdue).to include(overdue_task)
         expect(described_class.overdue).not_to include(future_task, unassigned_task, assigned_task)
       end
     end
 
     describe '.by_priority' do
-      it 'orders tasks by due date and estimated hours' do # rubocop:disable RSpec/MultipleExpectations
+      it 'orders tasks by due date and estimated hours' do
         ordered_tasks = described_class.by_priority
         expect(ordered_tasks.first).to eq(overdue_task)
         expect(ordered_tasks.last).to eq(future_task)

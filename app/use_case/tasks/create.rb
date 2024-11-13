@@ -5,13 +5,13 @@ module Tasks
     include Interactor
 
     def call
-      context.task = Task.new(context.task_params)
-      context.task.save!
+      task = Task.new(context.params)
 
-      # TODO: aqui lo ideal seria que se asigne el task a un usuario mediante un worker
-      # ocupando el algoritmo de asignacion de tareas
-      # el worker deberia estar en un archivo aparte llamado tasks/assignment_worker.rb
-      # ocupando sidekiq para la ejecucion de este worker
+      if task.save
+        context.task = task
+      else
+        context.fail!(error_messages: task.errors.full_messages)
+      end
     end
   end
 end

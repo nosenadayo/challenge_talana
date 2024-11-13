@@ -30,7 +30,7 @@ RSpec.describe Api::V1::EmployeesController, type: :controller do
       expect(json_response['data'].size).to eq(4)
     end
 
-    it 'returns employees with correct format' do # rubocop:disable RSpec/ExampleLength
+    it 'returns employees with correct format' do
       first_employee = json_response['data'].first
       expect(first_employee['attributes']).to include(
         'name' => be_a(String),
@@ -52,7 +52,7 @@ RSpec.describe Api::V1::EmployeesController, type: :controller do
         expect(json_response['data']['id'].to_i).to eq(employee.id)
       end
 
-      it 'includes employee attributes' do # rubocop:disable RSpec/MultipleExpectations, RSpec/ExampleLength
+      it 'includes employee attributes' do
         attributes = json_response['data']['attributes']
         expect(attributes).to include(
           'name' => employee.name,
