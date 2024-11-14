@@ -1,5 +1,7 @@
   require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   namespace :api do
     namespace :v1 do
       resources :tasks, only: [:index, :show, :create] do
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
           get :report
         end
       end
+      resources :skills, only: [:index]
     end
   end
 

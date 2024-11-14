@@ -1,24 +1,38 @@
-# README
+# TalaTask API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on rails API for task assignment optimization.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- Employee management with skills and availability
+- Task creation with required skills and duration
+- Automatic task assignment based on employee availability and skills
+- Assignment reporting system
+- JSON:API standardization
+- Swagger documentation
 
-* System dependencies
+## Setup
 
-* Configuration
+1. Start the server:
+```bash
+docker compose up --build
+```
 
-* Database creation
+2. Install dependencies:
+```bash
+docker compose run web bundle install
+```
 
-* Database initialization
+## API Documentation
 
-* How to run the test suite
+Access the Swagger documentation at `http://localhost:3000/api-docs`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Architecture
 
-* ...
+The application follows these design patterns and principles:
+
+- Service Objects for complex business logic
+- JSON:API serialization for standardized responses
+- RESTful API design
+- Modular and maintainable code structure

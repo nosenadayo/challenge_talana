@@ -38,6 +38,9 @@ group :development, :test do
   gem 'faker'
   gem 'pry-byebug'
   gem 'rspec-rails'
+  gem 'rswag-api'
+  gem 'rswag-specs'
+  gem 'rswag-ui'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
