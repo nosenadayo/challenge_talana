@@ -20,7 +20,7 @@ spec:
             - containerPort: 3000
           env:
             - name: RAILS_ENV
-              value: development
+              value: production
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
