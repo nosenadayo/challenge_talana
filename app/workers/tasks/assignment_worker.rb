@@ -14,7 +14,7 @@ module Tasks
       begin
         assignments = TaskAssignments::Create.assign_tasks(date)
         log_assignments(assignments)
-      rescue TaskAssignmentService::NoAvailableEmployeesError => e
+      rescue TaskAssignments::Create::NoAvailableEmployeesError => e
         Rails.logger.error "Error en asignación: #{e.message}"
         notify_admin_about_error(e)
       end

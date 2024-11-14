@@ -61,5 +61,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'interactor', '~> 3.0'
 gem 'jsonapi-serializer'
+gem 'rack-cors'
 gem 'redis'
 gem 'sidekiq'
