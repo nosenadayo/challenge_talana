@@ -22,7 +22,14 @@ spec:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: db-credentials
-                  key: url
+                  name: talana-secrets
+                  key: DATABASE_URL
             - name: REDIS_URL
               value: redis://redis-service:6379/1
+            - name: FRONTEND_URL
+              value: http://frontend-service
+            - name: RAILS_SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  name: talana-secrets
+                  key: RAILS_SECRET_KEY_BASE
