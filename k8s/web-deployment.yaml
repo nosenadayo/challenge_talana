@@ -15,7 +15,9 @@ spec:
       containers:
         - name: web
           image: ghcr.io/nosenadayo/challenge_talana:latest
-          command: bundle exec rails db:create db:migrate db:seed && bundle exec rails s -b 0.0.0.0
+          command: |
+            -bundle exec rails db:create db:migrate db:seed
+            bundle exec rails s -b 0.0.0.0
           ports:
             - containerPort: 3000
           env:
